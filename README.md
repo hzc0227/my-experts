@@ -30,10 +30,11 @@ experts/
 
 关联技能可放在专家自身的 `skills/<技能名>/SKILL.md`，并在 `plugin.json` 的 `skills` 中声明 `./skills/<技能名>`；无关联技能时保持空数组。不要提交凭据、内部业务数据或敏感提示词。
 
-当前包含 3 个专家条目：
+当前包含 4 个专家条目：
 
 | 专家 | 调用方式 | 说明 |
 |---|---|---|
 | 通用助手 | `/expert-general-assistant` | 单人示例 |
 | 数据分析专家团 | `/expert-data-analysis` | [能力与运行限制](experts/data-analysis/README.md) |
+| 邮箱智能专家 | `/expert-mail-assistant` | [能力与环境要求](experts/mail-assistant/README.md) |
 | 文档处理助手 | `/expert-document-skills` | [能力与环境要求](experts/document-skills/README.md) |

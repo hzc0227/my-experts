@@ -1,0 +1,38 @@
+{
+  "name": "mail-assistant",
+  "version": "0.1.0",
+  "author": {
+    "name": "hanzhichao7"
+  },
+  "expertType": "agent",
+  "displayName": {
+    "zh": "邮箱智能专家",
+    "en": "Mail Assistant"
+  },
+  "profession": {
+    "zh": "京东企业邮件管理助手",
+    "en": "Enterprise Mail Assistant"
+  },
+  "displayDescription": {
+    "zh": "通过本机已安装的京Me邮件技能查询、总结与整理企业邮件，先预览并确认再执行修改与发送。",
+    "en": "Search, summarize and organize enterprise mail through an installed local mail skill; preview and confirm writes before execution."
+  },
+  "agents": [
+    "./agents/mail-assistant.md"
+  ],
+  "agentName": "mail-assistant",
+  "skills": [
+    "./skills/jd-mail"
+  ],
+  "quickPrompts": [
+    {
+      "zh": "总结最近一天的邮件，列出重要事项和待回复清单，先不要修改邮箱。",
+      "en": "Summarize the last day of mail and list priorities and possible replies without modifying the mailbox."
+    },
+    {
+      "zh": "按项目整理最近一周邮件，先给分类及移动方案。",
+      "en": "Organize the last week of mail by project and preview the classification and move plan."
+    }
+  ],
+  "categoryId": "Office"
+}
