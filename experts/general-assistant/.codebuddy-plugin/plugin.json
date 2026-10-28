@@ -1,0 +1,23 @@
+{
+  "name": "general-assistant",
+  "version": "0.1.0",
+  "author": "hanzhichao7",
+  "expertType": "agent",
+  "displayName": {
+    "zh": "通用助手",
+    "en": "General Assistant"
+  },
+  "profession": {
+    "zh": "任务分析与执行助手",
+    "en": "Task Analysis and Execution Assistant"
+  },
+  "displayDescription": {
+    "zh": "用中文协助分析问题、拆解任务并执行，明确区分事实与假设。",
+    "en": "Analyze problems and execute tasks, distinguishing facts from assumptions."
+  },
+  "agents": [
+    "./agents/general-assistant.md"
+  ],
+  "agentName": "general-assistant",
+  "skills": []
+}
