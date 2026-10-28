@@ -1,0 +1,33 @@
+README.md
+  s_55db082b8a58cc::t_8b67eea70f145a 33-39
+experts/document-skills/.codebuddy-plugin/plugin.json
+  s_55db082b8a58cc::t_182fd59fc1acdd 1-59
+experts/document-skills/README.md
+  s_55db082b8a58cc::t_4eb8680acfa457 1-26
+experts/document-skills/agents/document-processing-expert.md
+  s_55db082b8a58cc::t_92ed0364f978bf 1-39
+experts/document-skills/skills/docx/SKILL.md
+  s_55db082b8a58cc::t_e5045b972f1151 1-23
+experts/document-skills/skills/pdf/SKILL.md
+  s_55db082b8a58cc::t_0fa673ce55703d 1-23
+experts/document-skills/skills/pptx/SKILL.md
+  s_55db082b8a58cc::t_fe551be8f6390b 1-23
+experts/document-skills/skills/xlsx/SKILL.md
+  s_55db082b8a58cc::t_840d98ddc5b4f2 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "4a2a64541e55878e8f8a4630b0375343944f86cb",
+  "prompts": {},
+  "sessions": {
+    "s_55db082b8a58cc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18114-9ec3-7723-848a-d96044000747",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "hanzhichao7 <hanzhichao7@jd.com>"
+    }
+  }
+}
