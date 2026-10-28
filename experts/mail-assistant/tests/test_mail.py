@@ -8,11 +8,13 @@ import json
 import os
 from pathlib import Path
 import tempfile
+import sys
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
 
+sys.path.insert(0, str(Path(__file__).parents[1] / "skills/jd-mail/scripts"))
 spec = importlib.util.spec_from_file_location(
     "mail_adapter", Path(__file__).parents[1] / "skills/jd-mail/scripts/mail.py"
 )
@@ -47,6 +49,15 @@ class MailDispatchTests(unittest.TestCase):
                 self.assertEqual(adapter.execute(self.backend, [name]), 0)
                 self.assertFalse(json.loads(output.getvalue())["executed"])
         self.assertEqual(self.calls, [])
+
+    def test_write_preview_never_acquires_credentials(self):
+        """Preparing a write cannot open login or obtain a mail token."""
+        def unexpected_login():
+            """Fail if preview reaches the authentication callback."""
+            self.fail("preview attempted authentication")
+
+        with redirect_stdout(io.StringIO()):
+            adapter.execute(self.backend, ["send"], unexpected_login)
 
     def test_explicit_confirmation_dispatches_each_write_once(self):
         """Confirmation enables exactly the reviewed operation requested."""
@@ -98,6 +109,9 @@ class MailDispatchTests(unittest.TestCase):
             with patch.dict(os.environ, {
                 "JD_MAIL_SKILL_DIR": str(skill), "DSH_HOME": temp,
             }), patch.object(adapter.importlib, "import_module", return_value=fake), \
+                    patch.object(adapter, "acquire_mail_token", side_effect=RuntimeError(
+                        "unable to resolve sso_token SECRET_SENTINEL"
+                    )), \
                     redirect_stdout(io.StringIO()) as output:
                 self.assertEqual(adapter.main(["folders"]), 1)
             result = json.loads(output.getvalue())

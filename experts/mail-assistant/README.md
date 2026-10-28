@@ -8,7 +8,11 @@ DSH 专家入口：`/expert-mail-assistant`。作者：hanzhichao7。
 
 需要 Python 3、本机原邮件技能的 Python 依赖、有效的京Me/SSO 登录态、企业网络以及 DSH 的相关执行和文件访问权限。非默认位置设置 `JD_MAIL_SKILL_DIR` 指向原技能根目录。当前版本未实现 Outlook 凭据提取或账密直连。
 
-DSH 不会自动继承京Me进程的凭据；需由本机安全环境提供 `SSO_TOKEN` 等原技能支持的凭据，或有原技能可识别的登录配置。本轮加载原脚本及发送预览成功，真实只读查询发现当前执行环境缺少可解析的 SSO 登录态，尚未验证邮箱连通和收发。
+适配层已接入本机 `joyme-bridge` 登录 SDK：现有邮件 Token → 原生 SSO 来源 → SDK 域匹配 Cookie → 邮件 Token 换取。SDK 通过 `JOYME_BRIDGE_DIR` 配置位置，默认在本机 `.codex/skills` 与 `.agents/skills` 中查找。
+
+首次没有有效登录态时执行 `python3 <技能目录>/scripts/mail.py login`；出现待扫码提示时，完成企业登录后执行 `login-finish`。SDK 管理浏览器登录，邮件后端管理 Token 的缓存、到期判断及网关刷新。命令只返回成功状态，不打印任何凭据。
+
+2026-10-28 已通过实际执行环境完成 SSO Cookie 获取、邮件 Token 换取和只读文件夹查询。尚未验证新的交互扫码会话，也未发送或修改邮件。
 
 ## 行为
 
@@ -27,4 +31,4 @@ DSH 不会自动继承京Me进程的凭据；需由本机安全环境提供 `SSO
 python3 -m unittest discover -s experts/mail-assistant/tests -v
 ```
 
-测试使用替身后端，验证预览不执行、显式确认后执行、未知命令拒绝和永久删除拒绝。它不代表真实邮箱收发已验证。真实写操作需另行由用户确认具体范围。
+测试使用替身后端，验证登录来源选择、Cookie 匹配与换取、显式登录及扫码收尾，以及预览不执行、确认后执行、未知命令拒绝和永久删除拒绝。它不代表真实邮箱收发已验证。真实写操作需另行由用户确认具体范围。

@@ -1,7 +1,7 @@
 ---
 name: jd-mail
 description: 使用本机已安装的京Me邮件能力，读取、搜索、总结、分类和整理企业邮箱，并在用户确认后收发邮件。
-version: 0.1.0
+version: 0.1.1
 author: hanzhichao7
 ---
 
@@ -13,7 +13,22 @@ author: hanzhichao7
 
 适配入口默认加载本机 `~/.joyclaw/remoteSkills/CLAW_SKILL_100016920/scripts/soap_mail_cli.py`，可通过 `JD_MAIL_SKILL_DIR` 指定包含 `scripts/` 的其他安装目录。本包不捆绑内部实现。沿用其现有京Me/SSO 登录逻辑：可用的环境凭据、现有本机登录配置及邮件令牌；不读取 Outlook 密码，不提供账密直连，不自动安装软件。
 
-京Me已登录不代表 DSH 自动继承其登录态。原技能优先读取 `SSO_TOKEN`，其次读取其支持的本机登录配置；也支持现有邮件令牌环境变量。通过本机安全环境配置凭据，不在聊天、专家正文或命令行参数中传递。缺失时会返回 `AUTH_MISSING`，停止查询；令牌过期则按企业登录流程刷新。DSH 需要被允许执行 Python、读取该安装目录与登录配置，并访问企业内网。运行所需 Python 依赖沿用原技能，通常至少需要 `requests`。令牌缓存默认独立放在 `$DSH_HOME/mail-assistant/token.json`，未设置 DSH_HOME 时为 `~/.dsh/mail-assistant/token.json`，新目录与文件使用私有权限。缓存、配置和邮箱数据均不提交 Git。
+## 登录与 Token
+
+适配层先复用原技能的有效邮件 Token 或原生 SSO 来源；不可用时，自动从本机 `joyme-bridge` SDK 获取匹配 `joymail-skill.jd.com` 的 `sso.jd.com` Cookie，再调用原技能的登录接口换取邮件 Token。缓存和到期判断由原技能完成，网关鉴权失败时沿用原技能的刷新逻辑。不会把 `me_token` 当成 `sso.jd.com` Cookie 使用。
+
+SDK 默认从 `~/.codex/skills/joyme-bridge`、`~/.agents/skills/joyme-bridge` 查找；其他位置通过 `JOYME_BRIDGE_DIR` 指定。缺少有效登录态时执行：
+
+```bash
+python3 "<SKILL_ROOT>/scripts/mail.py" login
+# 若提示浏览器已打开，等待用户完成企业登录，然后执行：
+python3 "<SKILL_ROOT>/scripts/mail.py" login-finish
+```
+
+`login` 使用 SDK 的缓存、静默刷新及必要时的浏览器交互登录；`login-finish` 收尾已挂起的浏览器登录，再换取邮件 Token。成功仅返回鉴权状态，不输出 Cookie 或 Token。普通查询不会自动启动交互式扫码；缺失凭据时提示执行登录命令。
+
+DSH 需要允许执行 Python、读取原技能与登录 SDK，并访问企业网络。邮件脚本通常至少需要 `requests`，交互登录的浏览器依赖由本机 SDK 管理。邮件 Token 默认独立缓存于 `$DSH_HOME/mail-assistant/token.json`，未设置 DSH_HOME 时为 `~/.dsh/mail-assistant/token.json`，新目录与文件使用私有权限。缓存、配置和邮箱数据均不提交 Git。写操作预览不会触发获取登录态或换取 Token。
+
 
 ## 查询
 
