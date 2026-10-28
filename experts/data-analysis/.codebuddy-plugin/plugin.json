@@ -1,0 +1,164 @@
+{
+  "name": "data-analysis",
+  "version": "1.0.1",
+  "description": "A DSH data analysis expert with six role definitions, a CSV analysis toolkit, and review checklists. Roles run within the current session unless actual subagent delegation is available.",
+  "author": {
+    "name": "Horizon215",
+    "email": ""
+  },
+  "agents": [
+    "./agents/data-team-lead.md",
+    "./agents/data-engineer.md",
+    "./agents/data-statistician.md",
+    "./agents/insight-consultant.md",
+    "./agents/visual-storyteller.md",
+    "./agents/red-team-reviewer.md"
+  ],
+  "expertType": "team",
+  "agentName": "data-team-lead",
+  "teamInfo": {
+    "leadAgent": "data-team-lead",
+    "memberAgents": [
+      "data-engineer",
+      "data-statistician",
+      "insight-consultant",
+      "visual-storyteller",
+      "red-team-reviewer"
+    ]
+  },
+  "skills": [
+    "./skills/data-analysis-cn"
+  ],
+  "displayName": {
+    "en": "Data Team",
+    "zh": "数据分析专家团"
+  },
+  "profession": {
+    "en": "Data Analysis Expert Team",
+    "zh": "数据分析团队"
+  },
+  "displayDescription": {
+    "zh": "面向 DSH 的数据分析专家：六种职责、CSV 分析工具箱与交付前复核；默认在当前会话分阶段执行。",
+    "en": "Data analysis for DSH with six role definitions, a CSV toolkit and review checklists; stages run in the current session by default."
+  },
+  "avatar": "avatars/team.png",
+  "categoryId": "04-DataAI",
+  "defaultInitPrompt": {
+    "zh": "这是我们店上半年的销售 Excel，帮我分析下为什么 6 月掉得厉害，周五汇报要用",
+    "en": "Here's my shop's H1 sales spreadsheet - figure out why June dropped hard, I need it for a Friday report"
+  },
+  "plugin": "data-analysis",
+  "tags": [
+    {
+      "en": "Data Analysis",
+      "zh": "数据分析"
+    },
+    {
+      "en": "Data Driven",
+      "zh": "数据驱动"
+    },
+    {
+      "en": "Business Analysis",
+      "zh": "经营分析"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "zh": "这是我们店上半年的销售 Excel，帮我分析下为什么 6 月掉得厉害，周五汇报要用",
+      "en": "Here's my shop's H1 sales spreadsheet - figure out why June dropped hard, I need it for a Friday report"
+    },
+    {
+      "zh": "帮我算下这个转化漏斗哪步最拉胯：浏览 10 万、加购 3.2 万、下单 1.5 万、支付 9800",
+      "en": "Which step of my funnel is the weakest: 100k views, 32k add-to-cart, 15k orders, 9.8k paid"
+    },
+    {
+      "zh": "拿这份用户订单表做全套分析：先体检数据，再 RFM 分层和留存矩阵，结论过一遍红队复核，最后出给老板的一页纸",
+      "en": "Full analysis on this order table: audit the data, run RFM segmentation and cohort retention, red-team the conclusions, then give me a one-pager for the boss"
+    }
+  ],
+  "members": [
+    {
+      "id": "data-team-lead",
+      "name": {
+        "en": "Horizon",
+        "zh": "Horizon"
+      },
+      "profession": {
+        "en": "Data Team Lead",
+        "zh": "首席分析师"
+      },
+      "avatar": "avatars/team-lead.png",
+      "role": "lead"
+    },
+    {
+      "id": "data-engineer",
+      "name": {
+        "en": "Chen",
+        "zh": "陈澈"
+      },
+      "profession": {
+        "en": "Data Engineer",
+        "zh": "数据工程师"
+      },
+      "avatar": "avatars/data-engineer.png",
+      "role": "member"
+    },
+    {
+      "id": "data-statistician",
+      "name": {
+        "en": "Yan",
+        "zh": "严谨"
+      },
+      "profession": {
+        "en": "Statistician",
+        "zh": "统计学家"
+      },
+      "avatar": "avatars/data-statistician.png",
+      "role": "member"
+    },
+    {
+      "id": "insight-consultant",
+      "name": {
+        "en": "Ming",
+        "zh": "顾明"
+      },
+      "profession": {
+        "en": "Insight Consultant",
+        "zh": "行业洞察顾问"
+      },
+      "avatar": "avatars/insight-consultant.png",
+      "role": "member"
+    },
+    {
+      "id": "visual-storyteller",
+      "name": {
+        "en": "Shu",
+        "zh": "陈述"
+      },
+      "profession": {
+        "en": "Visual Storyteller",
+        "zh": "可视化叙事官"
+      },
+      "avatar": "avatars/visual-storyteller.png",
+      "role": "member"
+    },
+    {
+      "id": "red-team-reviewer",
+      "name": {
+        "en": "Zhen",
+        "zh": "甄核"
+      },
+      "profession": {
+        "en": "Red Team Reviewer",
+        "zh": "复核官"
+      },
+      "avatar": "avatars/red-team-reviewer.png",
+      "role": "member"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "hanzhichao7"
+    }
+  ]
+}
