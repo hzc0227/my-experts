@@ -1,0 +1,59 @@
+{
+  "name": "document-skills",
+  "version": "1.0.0",
+  "author": {
+    "name": "hanzhichao7"
+  },
+  "expertType": "agent",
+  "displayName": {
+    "zh": "文档处理助手",
+    "en": "Document Assistant"
+  },
+  "profession": {
+    "zh": "办公文档处理专家",
+    "en": "Office Document Specialist"
+  },
+  "displayDescription": {
+    "zh": "创建、编辑和提取 Word、Excel、PowerPoint 与 PDF；按实际工具能力转换与校验，保留原始文件。",
+    "en": "Create, edit and extract Word, Excel, PowerPoint and PDF files using available tools, with validation and original-file preservation."
+  },
+  "agents": [
+    "./agents/document-processing-expert.md"
+  ],
+  "agentName": "document-processing-expert",
+  "skills": [
+    "./skills/docx",
+    "./skills/xlsx",
+    "./skills/pptx",
+    "./skills/pdf"
+  ],
+  "defaultInitPrompt": {
+    "zh": "帮我处理这份文档，先确认目标格式和需要保留的内容，再生成新文件。",
+    "en": "Process this document, confirm the target format and preservation requirements, then produce a new file."
+  },
+  "quickPrompts": [
+    {
+      "zh": "把这份 Word 模板中的公司信息替换为新信息，保留格式并输出新文件。",
+      "en": "Update company details in this Word template, preserve formatting and save a new file."
+    },
+    {
+      "zh": "把多份 Excel 报表按字段名合并，核对行数和汇总金额。",
+      "en": "Merge Excel reports by column names and reconcile row counts and totals."
+    },
+    {
+      "zh": "提取这份 PDF 的正文和表格，标明页码和识别不确定的内容。",
+      "en": "Extract PDF text and tables, marking page numbers and uncertain recognition."
+    }
+  ],
+  "categoryId": "Office",
+  "tags": [
+    {
+      "zh": "文档处理",
+      "en": "Documents"
+    },
+    {
+      "zh": "办公自动化",
+      "en": "Office Automation"
+    }
+  ]
+}
