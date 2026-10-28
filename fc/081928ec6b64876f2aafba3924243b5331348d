@@ -1,0 +1,35 @@
+experts/mail-assistant/README.md
+  s_55db082b8a58cc::t_3c3ff1ce949ede 1-30
+experts/mail-assistant/skills/jd-mail/scripts/mail.py
+  s_55db082b8a58cc::t_3c3ff1ce949ede 88,91-96
+  s_55db082b8a58cc::t_0f2763ebb5a9a4 1-87,89-90,97-104
+.gitignore
+  s_55db082b8a58cc::t_3c3ff1ce949ede 4-5
+experts/mail-assistant/skills/jd-mail/SKILL.md
+  s_55db082b8a58cc::t_3c3ff1ce949ede 1-44
+experts/mail-assistant/tests/test_mail.py
+  s_55db082b8a58cc::t_bb9e0146eda70c 8,10,13,76-105
+  s_55db082b8a58cc::t_0f2763ebb5a9a4 1-7,9,11-12,14-75,106-109
+README.md
+  s_55db082b8a58cc::t_ca70a2de2668b6 33,39
+experts/mail-assistant/.codebuddy-plugin/plugin.json
+  s_55db082b8a58cc::t_3db750bfe3ba43 1-38
+experts/mail-assistant/agents/mail-assistant.md
+  s_55db082b8a58cc::t_4b00dc49f4a3bb 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "fc081928ec6b64876f2aafba3924243b5331348d",
+  "prompts": {},
+  "sessions": {
+    "s_55db082b8a58cc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18114-9ec3-7723-848a-d96044000747",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "hanzhichao7 <hanzhichao7@jd.com>"
+    }
+  }
+}
