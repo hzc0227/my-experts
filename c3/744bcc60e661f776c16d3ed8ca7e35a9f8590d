@@ -1,0 +1,25 @@
+.gitignore
+  s_55db082b8a58cc::t_e8d4786434d7f0 1-3
+README.md
+  s_55db082b8a58cc::t_889c519185002b 1-33
+experts/general-assistant/.codebuddy-plugin/plugin.json
+  s_55db082b8a58cc::t_9aed6f95f6690d 1-23
+experts/general-assistant/agents/general-assistant.md
+  s_55db082b8a58cc::t_4ff1a803f1871c 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "c3744bcc60e661f776c16d3ed8ca7e35a9f8590d",
+  "prompts": {},
+  "sessions": {
+    "s_55db082b8a58cc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18114-9ec3-7723-848a-d96044000747",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "hanzhichao7 <hanzhichao7@jd.com>"
+    }
+  }
+}
